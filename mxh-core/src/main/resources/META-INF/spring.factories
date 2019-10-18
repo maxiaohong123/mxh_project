@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.mxh.core.MxhConfig
+com.mxh.core.MxhConfig
