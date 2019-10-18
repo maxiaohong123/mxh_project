@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "mxh.hello.format",
+      "type": "com.mxh.starter.autoconfiguration.HelloProperties",
+      "sourceType": "com.mxh.starter.autoconfiguration.HelloProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "mxh.hello.format.info",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "com.mxh.starter.autoconfiguration.HelloProperties"
+    }
+  ],
+  "hints": []
+}

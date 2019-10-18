@@ -1,0 +1,9 @@
+com\mxh\starter\format\HelloFormatTemplate.class
+com\mxh\starter\format\JsonFormatProcessor.class
+com\mxh\starter\autoconfiguration\FormatAutoConfiguration.class
+com\mxh\starter\format\StringFormatProcessor.class
+com\mxh\starter\format\FormatProcessor.class
+com\mxh\starter\App.class
+com\mxh\starter\autoconfiguration\HelloAutoConfiguration.class
+com\mxh\starter\autoconfiguration\HelloProperties.class
+META-INF\spring-configuration-metadata.json
