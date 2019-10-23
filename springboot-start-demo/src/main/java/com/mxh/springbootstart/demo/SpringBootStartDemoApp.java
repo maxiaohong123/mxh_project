@@ -5,6 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
+
+//@SpringBootApplication(exclude ={DataSourceAutoConfiguration.class,
+//        DataSourceTransactionManagerAutoConfiguration.class}
+//)
 public class SpringBootStartDemoApp {
 
     public static void main(String[] args) {
