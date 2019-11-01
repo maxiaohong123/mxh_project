@@ -1,0 +1,61 @@
+package com.mxh.pjc.pjc.controller;
+
+
+import com.netflix.hystrix.HystrixCommandGroupKey;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Random;
+//看到2017 熔断 下  36：06秒了
+
+
+@RestController
+@RequestMapping("/hystrix")
+public class HystrixDemoController {
+
+    private  final Random random = new Random();
+
+    /**
+     * 当{@link #sayhello}方法调用超时或失败时
+     * @return
+     */
+    @HystrixCommand(fallbackMethod = "errorContent",
+                    commandProperties = {@HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="100")})
+    @GetMapping("/sayhello")
+    public String  sayhello() throws Exception{
+        int value = random.nextInt(200);
+        System.out.println("helloworld() costs"+value+"ms.");
+        Thread.sleep(value);
+        return "hello,world";
+    }
+
+    @GetMapping("/sayhello2")
+    public String  sayhello2() throws Exception{
+
+        return new HelloWorldCommand().execute();
+    }
+
+    //HystrixCommand编程方式
+    private   class HelloWorldCommand extends com.netflix.hystrix.HystrixCommand<String>{
+
+        protected HelloWorldCommand(HystrixCommandGroupKey group) {
+            super(HystrixCommandGroupKey.Factory.asKey("HelloWorld"));
+        }
+
+        @Override
+        protected String run() throws Exception {
+            return "hello,world";
+        }
+        protected  String getFallback(){
+            return  HystrixDemoController.this.errorContent();
+        }
+    }
+
+
+    public String errorContent(){
+        return "error";
+    }
+}
