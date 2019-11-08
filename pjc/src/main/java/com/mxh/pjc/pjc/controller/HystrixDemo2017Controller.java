@@ -14,18 +14,18 @@ import java.util.Random;
 
 @RestController
 @RequestMapping("/hystrix")
-public class HystrixDemoController {
+public class HystrixDemo2017Controller {
 
     private  final Random random = new Random();
 
     /**
-     * 当{@link #sayhello}方法调用超时或失败时
+     * 当{@link #sayhello1}方法调用超时或失败时
      * @return
      */
     @HystrixCommand(fallbackMethod = "errorContent",
                     commandProperties = {@HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="100")})
-    @GetMapping("/sayhello")
-    public String  sayhello() throws Exception{
+    @GetMapping("/sayhello1")
+    public String  sayhello1() throws Exception{
         int value = random.nextInt(200);
         System.out.println("helloworld() costs"+value+"ms.");
         Thread.sleep(value);
@@ -41,8 +41,9 @@ public class HystrixDemoController {
     //HystrixCommand编程方式
     private   class HelloWorldCommand extends com.netflix.hystrix.HystrixCommand<String>{
 
-        protected HelloWorldCommand(HystrixCommandGroupKey group) {
-            super(HystrixCommandGroupKey.Factory.asKey("HelloWorld"));
+        protected HelloWorldCommand() {
+            super(HystrixCommandGroupKey.Factory.asKey("HelloWorld"),
+                    100);
         }
 
         @Override
@@ -50,7 +51,7 @@ public class HystrixDemoController {
             return "hello,world";
         }
         protected  String getFallback(){
-            return  HystrixDemoController.this.errorContent();
+            return  HystrixDemo2017Controller.this.errorContent();
         }
     }
 
