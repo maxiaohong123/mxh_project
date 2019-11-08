@@ -10,6 +10,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * RPC调用方式一：RestTemplate ,提供：被调方服务名称；提供RestTemplate
+ */
 
 @Service
 public class UserServiceImpl implements UserService {
