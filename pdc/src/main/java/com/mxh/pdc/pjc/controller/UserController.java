@@ -5,6 +5,7 @@ import com.mxh.pdc.pjc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import java.util.Collection;
 
 @RestController
@@ -13,6 +14,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+
 
     @RequestMapping("hello")
     public String hello(@RequestParam(value = "name")String name){

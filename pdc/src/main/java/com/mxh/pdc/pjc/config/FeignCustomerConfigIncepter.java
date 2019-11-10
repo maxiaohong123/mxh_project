@@ -1,7 +1,23 @@
 package com.mxh.pdc.pjc.config;
 
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
+
 /**
  * Created by Maxiaohong on 2019-11-10.
  */
-public class FeignCustomerConfigIncepter {
+@Configuration
+public class FeignCustomerConfigIncepter implements RequestInterceptor {
+    @Override
+    public void apply(RequestTemplate requestTemplate) {
+        ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = sra.getRequest();
+        Enumeration<String> headerNames = request.getHeaderNames();
+    }
 }

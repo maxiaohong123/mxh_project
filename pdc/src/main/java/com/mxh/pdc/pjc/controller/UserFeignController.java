@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
 import java.util.Collection;
 
 @RestController
@@ -15,6 +16,27 @@ public class UserFeignController {
 
     @Autowired
     private UserFeignService userFeignService;
+
+    @PostConstruct
+    public void init(){
+        String name = "a1";
+        String addr = "a2";
+
+//        User user = userFeignService.save(name,addr);
+//        if(null!=user){
+//            System.out.println("success");
+//        }else{
+//            System.out.println("fail");
+//        }
+
+        User user =  saveUser(name,addr);
+        if(null!=user){
+            System.out.println("success");
+        }else{
+            System.out.println("fail");
+        }
+    }
+
 
     @RequestMapping("hello")
     public String hello(@RequestParam(value = "name")String name){
