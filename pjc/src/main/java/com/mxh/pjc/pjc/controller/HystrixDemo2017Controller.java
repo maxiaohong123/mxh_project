@@ -23,7 +23,9 @@ public class HystrixDemo2017Controller {
      * @return
      */
     @HystrixCommand(fallbackMethod = "errorContent",
-                    commandProperties = {@HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="100")})
+                    commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="100")
+    })
     @GetMapping("/sayhello1")
     public String  sayhello1() throws Exception{
         int value = random.nextInt(200);
