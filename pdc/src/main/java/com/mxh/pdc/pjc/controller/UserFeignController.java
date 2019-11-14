@@ -17,25 +17,25 @@ public class UserFeignController {
     @Autowired
     private UserFeignService userFeignService;
 
-    @PostConstruct
-    public void init(){
-        String name = "a1";
-        String addr = "a2";
-
-//        User user = userFeignService.save(name,addr);
-//        if(null!=user){
-//            System.out.println("success");
-//        }else{
-//            System.out.println("fail");
-//        }
-
-        User user =  saveUser(name,addr);
-        if(null!=user){
-            System.out.println("success");
-        }else{
-            System.out.println("fail");
-        }
-    }
+//    @PostConstruct
+//    public void init(){
+////        String name = "a1";
+////        String addr = "a2";
+////
+////        User user = userFeignService.save(name,addr);
+////        if(null!=user){
+////            System.out.println("success");
+////        }else{
+////            System.out.println("fail");
+////        }
+//
+////        User user =  saveUser(name,addr);
+////        if(null!=user){
+////            System.out.println("success");
+////        }else{
+////            System.out.println("fail");
+////        }
+//    }
 
 
     @RequestMapping("hello")
