@@ -42,9 +42,7 @@ public class HystrixDemo2019ControllerAspect {
                 semaphore.release();
             }
         }
-        // 1. 得到@Limited注解
-        //2.得到@Limited注解属性
-        //3.根据属性构造Semaphore
+
 
         return returnValue;
     }

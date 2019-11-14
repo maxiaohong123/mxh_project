@@ -77,8 +77,5 @@ public class CircuitBreakerHandlerInterceptor2019 implements HandlerInterceptor 
         return fallbackMethod;
     }
 
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
 
-    }
 }
