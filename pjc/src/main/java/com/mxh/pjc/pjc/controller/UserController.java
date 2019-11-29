@@ -16,8 +16,17 @@ public class UserController {
 
     @RequestMapping("hello")
     public String hello(@RequestParam(value = "name")String name){
+        System.out.println(name);
         return "hello:"+name;
     }
+
+    @RequestMapping("say")
+    public String say(@RequestParam(value = "name")String name){
+        System.out.println(name);
+        return "say hello:"+name;
+    }
+
+
 
 
     @RequestMapping("save")
