@@ -217,14 +217,14 @@ public class RibbonCustomerController2018 {
     // @Bean+RestTemplate+自定义拦截器(自定义负载均衡实现)
     // 自定义RestTemplate
     @Bean
-    @Autowired
+//    @Autowired
     @CustomizedLoadBalanced2018
     public RestTemplate restTemplate(){  //通过构造函数依赖注入
          return new RestTemplate();
     }
 
     @Bean
-    @Autowired
+//    @Autowired
     public Object customizer(@CustomizedLoadBalanced2018 Collection<RestTemplate> restTemplates,
                              ClientHttpRequestInterceptor interceptor) {
         restTemplates.forEach(r -> {
