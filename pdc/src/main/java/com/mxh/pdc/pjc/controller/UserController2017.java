@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/order")
 public class UserController2017 {
 
     @Autowired

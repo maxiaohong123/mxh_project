@@ -2,6 +2,7 @@ package com.mxh.pdc.pjc.controller;
 
 import com.mxh.pdc.pjc.domain.User;
 import com.mxh.pdc.pjc.service.UserFeignService;
+import com.mxh.pdc.pjc.service.rest.clients.UserRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,11 +12,18 @@ import javax.annotation.PostConstruct;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/user1")
+@RequestMapping("/user")
 public class UserFeignController {
 
     @Autowired
     private UserFeignService userFeignService;
+
+    @Autowired
+    private UserRestService userRestService;
+
+
+
+
 
 //    @PostConstruct
 //    public void init(){
@@ -60,6 +68,15 @@ public class UserFeignController {
     }
 
 
+    @RequestMapping("/feign/say")//pdc-->pjc
+    public String feignSay(@RequestParam String message){
+        return  userFeignService.say(message);
+    }
+
+    @RequestMapping("/rest/say")//pdc-->pjc
+    public String restSay(@RequestParam String message){
+        return  userRestService.say(message);
+    }
 
 
 

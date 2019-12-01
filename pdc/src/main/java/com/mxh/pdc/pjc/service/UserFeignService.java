@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collection;
 
-@FeignClient(value = "${pjc.name}",configuration = FeignCustomerConfig2.class)
+@FeignClient(value = "${pjc.name}")
 public interface UserFeignService {
 
     @RequestMapping("/user/save")
@@ -21,4 +21,7 @@ public interface UserFeignService {
 
     @RequestMapping("/user/findall")
     Collection findall();
+
+    @RequestMapping("/user/say")//pdc-->pjc
+    public String say(@RequestParam String name);
 }

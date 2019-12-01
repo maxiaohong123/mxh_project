@@ -2,20 +2,17 @@ package com.mxh.pdc.pjc.controller;
 
 import com.mxh.pdc.pjc.annotation.CustomizedLoadBalanced2018;
 import com.mxh.pdc.pjc.loadblance.LoadBalancedRequestInterceptor2018;
+import com.mxh.pdc.pjc.service.UserFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 /**
@@ -36,6 +33,8 @@ public class RibbonCustomerController2018 {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+
+
     @Value("${pjc.name}")
     private String serviceName;
 
@@ -52,6 +51,11 @@ public class RibbonCustomerController2018 {
         return lbRestTemplate.getForObject("http://"+serviceName+"/user/say?name="+name,String.class);
 
     }
+
+
+
+
+
 
     //--------以下是手写实现负载均衡的第四版-start---------
     //自定义拦截器需注入
