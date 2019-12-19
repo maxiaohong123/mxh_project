@@ -3,13 +3,14 @@ package com.mxh.pdc.service;
 import com.mxh.pdc.config.FeignCustomerConfig2;
 import com.mxh.pdc.config.FeignCustomerConfigIncepter;
 import com.mxh.pdc.domain.User;
+import com.mxh.pdc.service.impl.UserFeignServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collection;
 
-@FeignClient(value = "${pjc.name}")
+@FeignClient(value = "${pjc.name}" ,fallback = UserFeignServiceImpl.class)
 public interface UserFeignService {
 
     @RequestMapping("/user/save")
@@ -23,5 +24,5 @@ public interface UserFeignService {
     Collection findall();
 
     @RequestMapping("/user/say")//pdc-->pjc
-    public String say(@RequestParam String name);
+    public String say(@RequestParam(value = "name") String name);
 }

@@ -1,14 +1,19 @@
 package com.mxh.pdc.controller;
 
+import com.mxh.pdc.domain.Priority;
+import com.mxh.pdc.domain.Result;
 import com.mxh.pdc.domain.User;
+import com.mxh.pdc.mapper.PriorityMapper;
 import com.mxh.pdc.service.UserFeignService;
 import com.mxh.pdc.service.rest.clients.UserRestService;
+import com.mxh.pdc.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -19,6 +24,9 @@ public class UserFeignController {
 
     @Autowired
     private UserRestService userRestService;
+
+    @Autowired
+    private PriorityMapper priorityMapper;
 
 
 
@@ -73,12 +81,12 @@ public class UserFeignController {
      * @return
      */
     @RequestMapping("/feign/say")//pdc-->pjc
-    public String feignSay(@RequestParam String name){
+    public String feignSay(@RequestParam("name") String name){
         try{
             return  userFeignService.say(name);
         }catch (Exception e){
             e.printStackTrace();
-            return "调用出错";
+            return "调用异常";
         }
 
     }
@@ -91,6 +99,13 @@ public class UserFeignController {
     @RequestMapping("/rest/say")//pdc-->pjc
     public String restSay(@RequestParam("name") String name){
         return  userRestService.say(name);
+    }
+
+
+    @RequestMapping("selectAllPriority")
+    public Result selectAllPriority(){
+        List<Priority> list = priorityMapper.selectAll();
+        return ResultUtil.success(list);
     }
 
 
