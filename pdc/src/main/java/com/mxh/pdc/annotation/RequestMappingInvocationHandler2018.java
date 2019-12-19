@@ -21,6 +21,7 @@ import static org.springframework.core.annotation.AnnotationUtils.findAnnotation
 public class RequestMappingInvocationHandler2018 implements InvocationHandler {
 
     private final String serviceName;
+    //ParameterNameDiscoverer 对类的方法名称起作用，对接口的方法名称不起作用
     private final ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
 
     private final BeanFactory beanFactory;
@@ -42,7 +43,7 @@ public class RequestMappingInvocationHandler2018 implements InvocationHandler {
 
             //获取方法参数数量
             int count = method.getParameterCount();
-            //方法参数顺序
+            //方法参数顺序（暂时不用）
             String[] paramNames = parameterNameDiscoverer.getParameterNames(method);
             //方法参数类型集合
             Class<?>[] paramTypes = method.getParameterTypes();

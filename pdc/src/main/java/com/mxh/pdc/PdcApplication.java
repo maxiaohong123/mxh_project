@@ -17,16 +17,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 //@EnableRestClient(clients = UserRestService.class) //启动自定义RestClient
 @EnableScheduling
 public class PdcApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(PdcApplication.class, args);
-
-
-        //看到 2018期   feign  中  完了，但是自己手写的FeignClient实现原理还有问题，需继续研究
     }
-
-
-
-
-
 }
