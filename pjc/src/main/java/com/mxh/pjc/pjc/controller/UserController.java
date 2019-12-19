@@ -3,6 +3,7 @@ package com.mxh.pjc.pjc.controller;
 import com.mxh.pjc.pjc.domain.User;
 import com.mxh.pjc.pjc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -11,19 +12,22 @@ import java.util.Collection;
 @RequestMapping("/user")
 public class UserController {
 
+    @Value("${server.port}")
+    int port;
+
     @Autowired
     private UserService userService;
 
     @RequestMapping("hello")
     public String hello(@RequestParam(value = "name")String name){
         System.out.println(name);
-        return "hello:"+name;
+        return "hello:"+name+";port:"+port;
     }
 
     @RequestMapping("say")
     public String say(@RequestParam(value = "name")String name){
         System.out.println(name);
-        return "say hello:"+name;
+        return "say :"+name;
     }
 
 

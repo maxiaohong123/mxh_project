@@ -16,7 +16,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication
 @EnableDiscoveryClient  //注意：一定要用EnableDiscoveryClient,它即支持eureka，也支持zookeeper
 //@EnableHystrix
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
+@EnableHystrix
 @EnableHystrixDashboard
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class PjcApplication {
