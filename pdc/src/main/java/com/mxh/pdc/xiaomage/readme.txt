@@ -20,3 +20,4 @@
 
 4、存在问题：
   1)  在自定义的RestClientsRegistar类中进行注入接口生成的代理类时，没有返回真正的代理类，而是返回null，导致项目启动老是报UserRestService没有注入。
+   解决：因为在接口的代理注入时(实现FactoryBean接口时)，最后没有将proxy返回，返回了null。

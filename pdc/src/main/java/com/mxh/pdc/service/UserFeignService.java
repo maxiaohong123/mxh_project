@@ -1,7 +1,5 @@
 package com.mxh.pdc.service;
 
-import com.mxh.pdc.config.FeignCustomerConfig2;
-import com.mxh.pdc.config.FeignCustomerConfigIncepter;
 import com.mxh.pdc.domain.User;
 import com.mxh.pdc.service.impl.UserFeignServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
