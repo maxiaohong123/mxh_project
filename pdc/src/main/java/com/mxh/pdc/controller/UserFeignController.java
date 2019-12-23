@@ -53,7 +53,7 @@ public class UserFeignController {
 //    }
 
 
-    @RequestMapping("hello")
+    @RequestMapping("/feign/hello")
     public String hello(@RequestParam(value = "name")String name){
         System.out.println("feign:"+name);
        return  userFeignService.hello(name);
