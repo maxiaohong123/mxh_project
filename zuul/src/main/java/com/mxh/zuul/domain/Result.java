@@ -1,4 +1,4 @@
-package com.worktime.zuul.domain;
+package com.mxh.zuul.domain;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.visionvera.sens.util;
+package com.mxh.zuul.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
