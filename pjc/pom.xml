@@ -57,10 +57,10 @@
         </dependency>
 
         <!--eureka客户端的jar包-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+        <!--</dependency>-->
 
         <!--zk客户端的 错误的依赖-->
         <!--<dependency>-->
@@ -131,6 +131,11 @@
             <artifactId>java-sizeof</artifactId>
             <version>0.0.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

@@ -21,7 +21,7 @@ public class UserController {
     @RequestMapping("hello")
     public String hello(@RequestParam(value = "name")String name){
         System.out.println(name);
-        return "hello:"+name+";port:"+port;
+        return "welcome,hello:"+name+";port:"+port;
     }
 
     @RequestMapping("say")
