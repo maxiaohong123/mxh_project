@@ -2,6 +2,7 @@ package com.mxh.pjc.pjc;
 
 //import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -20,6 +21,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableHystrix
 @EnableHystrixDashboard
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@MapperScan("com.mxh.pjc.pjc.mapper")
 public class PjcApplication {
 
     public static void main(String[] args) {
